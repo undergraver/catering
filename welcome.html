@@ -14,7 +14,7 @@
     <form name="SubscribeForm">
       <div name="emailsubscribe">
         Email:
-        <input type="text" name="input" ng-model="data.email" ng-pattern="/[a-zA-Z\.]+@hello.com/" placeholder="user@hello.com" required/>
+        <input type="text" name="input" ng-model="data.email" ng-pattern="/^[a-zA-Z\.]+@hello.com$/" placeholder="user@hello.com" required/>
         <span class="error" ng-show="SubscribeForm.input.$error.pattern">Invalid!</span>
         <input type="button" ng-disabled="SubscribeForm.input.$error.required || SubscribeForm.input.$error.pattern" ng-click="OnSubscribe()" value="Subscribe" />
       </div>
