@@ -11,17 +11,22 @@
   
   <body ng-app="Catering" ng-controller="SubscribeController">
   
-    <form name="SubscribeForm">
+    <form ng-hide="data.subscribed" name="SubscribeForm">
       <div name="emailsubscribe">
         Email:
-        <input type="text" name="input" ng-model="data.email" ng-pattern="/^[a-zA-Z\.]+@hello.com$/" placeholder="user@hello.com" required/>
-        <span class="error" ng-show="SubscribeForm.input.$error.pattern">Invalid!</span>
+        <input type="text" name="input" ng-model="data.email" ng-pattern="/^[a-zA-Z\.]+@siemens.com$/" placeholder="user@siemens.com" required/>
+        <span class="error" ng-show="SubscribeForm.input.$error.pattern">Invalid email address!</span>
         <input type="button" ng-disabled="SubscribeForm.input.$error.required || SubscribeForm.input.$error.pattern" ng-click="OnSubscribe()" value="Subscribe" />
       </div>
     </form>
-    
+
+   <p ng-show="data.subscribed"> {{ data.email }} subscribed. Please check your email for information.</p>
+
+    <!-- Test only
     <p>Email: {{ data.email }}</p>
     <p>{{SubscribeForm.input.$error | json}}</p>
-      
+      -->
+
   </body>
 </html>
+
